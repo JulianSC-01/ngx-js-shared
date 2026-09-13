@@ -126,7 +126,7 @@
             "coverage": true,
             "coverageExclude": [
               "projects/ngx-js-shared/experimental/**",
-              "projects/ngx-js-shared/src/lib/**/spec/**"
+              "projects/ngx-js-shared/src/lib/**/spec/*.component.ts"
             ],
             "runnerConfig": "vitest-base.config.ts",
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",

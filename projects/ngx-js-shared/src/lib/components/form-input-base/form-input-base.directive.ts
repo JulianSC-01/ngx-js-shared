@@ -60,7 +60,8 @@ export abstract class FormInputBaseDirective
       this.ngControl.control!);
 
     FormHelper.getErrorListener(
-      this.formControl(), this.destroyRef).
+      this.formControl(),
+      this.destroyRef).
       subscribe(event => {
         this.controlIsInvalid.set(
           FormHelper.isInvalid(event.source));

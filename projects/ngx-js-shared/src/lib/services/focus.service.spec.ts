@@ -6,6 +6,7 @@ describe('FocusService', () => {
   let service: FocusService;
 
   const mockFocus = vi.fn();
+
   const mockHTMLElement = {
     focus: mockFocus
   } as unknown as HTMLElement;
@@ -28,11 +29,9 @@ describe('FocusService', () => {
   });
 
   afterEach(() => {
-    vi.useRealTimers();
-
-    // Resets all call tracking for the focus function so
-    // we can assert it cleanly in each test.
     mockFocus.mockClear();
+
+    vi.useRealTimers();
   });
 
   test('should focus custom element', async () => {

@@ -7,9 +7,10 @@ import {
 import { filter } from "rxjs";
 
 export class FormHelper {
+  /* istanbul ignore next */
   private constructor() {}
 
-  static getErrorCountMessage(
+  public static getErrorCountMessage(
     formGroup: FormGroup<any>) {
     let count = this.getErrorCount(formGroup);
 
@@ -21,7 +22,29 @@ export class FormHelper {
     return '';
   }
 
-  static getErrorListener(
+  public static getErrorCount(
+    form: FormGroup<any> | FormArray<any>) {
+    let count = 0;
+
+    for (const field in form.controls) {
+      const control = form.get(field);
+
+      if (control instanceof FormGroup ||
+          control instanceof FormArray) {
+        count += this.getErrorCount(control);
+        continue;
+      }
+
+      if (FormHelper.isInvalid(
+          control as FormControl)) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
+  public static getErrorListener(
     formControl: AbstractControl,
     destroyRef: DestroyRef) {
     return formControl.events.pipe(
@@ -32,46 +55,11 @@ export class FormHelper {
     );
   }
 
-  static isInvalid(control : AbstractControl) {
+  public static isInvalid(
+    control: AbstractControl) {
     return (
-      control &&
       control.enabled &&
       control.dirty &&
       control.invalid);
-  }
-
-  static revealAllErrors(
-    form: FormGroup<any> | FormArray<any>) {
-    if (form) {
-      for (const field in form.controls) {
-        let control = form.get(field);
-        if (control instanceof FormGroup ||
-            control instanceof FormArray) {
-          this.revealAllErrors(control);
-        } else if (control instanceof FormControl) {
-          control.markAsDirty();
-        }
-      }
-    }
-  }
-
-  private static getErrorCount(
-    form?: FormGroup<any> | FormArray<any>) {
-    let count = 0;
-
-    if (form) {
-      for (const field in form.controls) {
-        let control = form.get(field);
-        if (control instanceof FormGroup ||
-            control instanceof FormArray) {
-          count += this.getErrorCount(control);
-        } else if (control instanceof FormControl) {
-          if (FormHelper.isInvalid(control))
-            count++;
-        }
-      }
-    }
-
-    return count;
   }
 }
