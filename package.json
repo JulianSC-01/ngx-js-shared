@@ -15,7 +15,6 @@
     "@angular/core": "~21.2.23",
     "@angular/forms": "~21.2.23",
     "@angular/platform-browser": "~21.2.23",
-    "@angular/platform-browser-dynamic": "~21.2.23",
     "@angular/router": "~21.2.23",
     "rxjs": "~7.5.0",
     "tslib": "~2.3.0"
