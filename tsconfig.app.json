@@ -11,7 +11,9 @@
         "./dist/ngx-js-shared/experimental"
       ]
     },
-    "types": []
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/**/*.ts"
