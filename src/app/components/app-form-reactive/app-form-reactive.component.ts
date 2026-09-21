@@ -1,11 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   FocusService, FormA11yDirective, FormErrorHeaderComponent, FormInputNumberComponent,
   FormInputSelectComponent, FormInputTextComponent, PageHeaderComponent
 } from 'ngx-js-shared';
-import { createReactiveForm, ReactiveForm } from './app-form-reactive.util';
+
+interface ReactiveForm {
+  formControlText: FormControl<string>;
+  formControlNumber: FormControl<number | null>;
+  formControlSelect: FormControl<string>;
+  formArray: FormArray<FormControl<string>>;
+}
 
 @Component({
   imports: [
@@ -29,8 +35,8 @@ export class AppFormReactiveComponent {
   private readonly formBuilder =
     inject(FormBuilder);
 
-  public reactiveForm :
-    FormGroup<ReactiveForm>;
+  public reactiveForm =
+    this.createReactiveForm();
 
   public formSelectElements =
     signal(['01', '02', '03']);
@@ -42,9 +48,31 @@ export class AppFormReactiveComponent {
       'max' : 'Error: Field must be less than or equal to 99'
   });
 
-  constructor() {
-    this.reactiveForm =
-      createReactiveForm(this.formBuilder);
+  private createReactiveForm() {
+    return this.formBuilder.
+      group<ReactiveForm>({
+      formControlText:
+        this.formBuilder.control('', {
+          nonNullable: true,
+          validators: Validators.required
+        }),
+      formControlNumber:
+        this.formBuilder.control(null, {
+          validators: [
+            Validators.required,
+            Validators.min(0),
+            Validators.max(99)
+          ]
+        }),
+      formControlSelect:
+        this.formBuilder.control('', {
+          nonNullable: true,
+          validators: Validators.required
+        }),
+      formArray:
+        this.formBuilder.array<
+          FormControl<string>>([])
+      });
   }
 
   addArrayElement() {
@@ -57,7 +85,7 @@ export class AppFormReactiveComponent {
     this.formArray.push(formArrayElement);
 
     this.focusService.focusElement(
-      '#formArrayText' + (this.formArray.length - 1))
+      `#formArrayText${this.formArray.length - 1}`);
   }
 
   removeArrayElement(index: number) {

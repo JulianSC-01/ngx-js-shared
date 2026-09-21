@@ -2,7 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -11,7 +10,10 @@
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
       "ngx-js-shared": [
-        "dist/ngx-js-shared"
+        "./projects/ngx-js-shared/src/index.ts"
+      ],
+      "ngx-js-shared/experimental": [
+        "./projects/ngx-js-shared/experimental/src/index.ts"
       ]
     },
     "noImplicitReturns": true,
@@ -23,16 +25,13 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "strictStandalone": true,
     "strictTemplates": true
   }
 }

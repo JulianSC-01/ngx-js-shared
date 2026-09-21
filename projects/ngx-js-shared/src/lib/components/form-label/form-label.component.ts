@@ -10,9 +10,11 @@ export class FormLabelComponent {
   readonly labelControlId =
     input<string>();
   readonly labelInvisible =
-    input(false,
-      { transform: booleanAttribute });
+    input(false, {
+      transform: booleanAttribute
+    });
   readonly labelRequired =
-    input(false,
-      { transform: booleanAttribute });
+    input(false, {
+      transform: booleanAttribute
+    });
 }

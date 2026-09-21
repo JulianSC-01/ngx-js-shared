@@ -1,11 +1,11 @@
 {
   "name": "ngx-js-shared",
-  "version": "20.0.0",
+  "version": "21.0.0",
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0",
-    "@angular/platform-browser": "^20.0.0",
-    "bootstrap": "^5.2.2"
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "bootstrap": "~5.3.8"
   },
   "dependencies": {
     "tslib": "^2.3.0"

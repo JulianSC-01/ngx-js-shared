@@ -23,7 +23,7 @@
   [disabled]="controlDisabled()"
   (blur)="_onTouched()"
   (input)="controlHasChanged($event)">
-@if (inputErrorMessages()) {
+@if (hasErrorMessages()) {
   <app-form-error-feedback
     [errorFeedbackControl]="formControl()"
     [errorFeedbackId]="inputErrorMessageId()"

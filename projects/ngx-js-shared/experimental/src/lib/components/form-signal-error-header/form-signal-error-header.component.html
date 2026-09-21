@@ -1,0 +1,15 @@
+@if (errorMessage()) {
+  <app-alert
+    alertId="errorHeader"
+    alertRole="note"
+    alertType="alert-danger">
+    {{ errorMessage() }}
+  </app-alert>
+} @else if (formInvalid()) {
+  <app-alert
+    alertId="errorHeader"
+    alertRole="note"
+    alertType="alert-danger">
+    {{ formErrorCountMessage() }}
+  </app-alert>
+}

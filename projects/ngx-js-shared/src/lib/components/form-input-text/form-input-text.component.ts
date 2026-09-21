@@ -15,19 +15,24 @@ import { FormLabelComponent } from '../form-label/form-label.component';
 export class FormInputTextComponent
   extends FormInputBaseDirective {
   readonly inputMaxLength =
-    input(undefined,
-      { transform: numberAttribute });
+    input(undefined, {
+      transform: (val) =>
+        numberAttribute(val, 50)
+    });
   readonly inputPlaceholder =
     input<string>();
   readonly inputSize =
-    input(undefined,
-      { transform: numberAttribute });
+    input(undefined, {
+      transform: (val) =>
+        numberAttribute(val, 50)
+    });
   readonly inputType =
     input<'text' | 'password'>('text');
 
   controlHasChanged(event: Event) {
     const newValue =
       (<HTMLInputElement>event.target).value;
+
     this._onChange(newValue);
   }
 }

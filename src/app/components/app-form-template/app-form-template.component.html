@@ -33,49 +33,54 @@
     #formErrorHeader
     [errorFormGroup]="templateForm.form">
   </app-form-error-header>
-  <div class="col-lg-6 mb-3">
-    <app-form-input-text
-      name="formValueText"
-      inputErrorMessageId="formValueTextError"
-      inputId="formValueText"
-      inputLabelText="Form Text Value"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()"
-      [(ngModel)]="formTextValue"
-      required>
-    </app-form-input-text>
-  </div>
-  <div class="col-lg-3 mb-3">
-    <app-form-input-number
-      name="formValueNumber"
-      inputErrorMessageId="formValueNumberError"
-      inputId="formValueNumber"
-      inputLabelText="Form Number Value"
-      inputMin="0"
-      inputMax="99"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()"
-      [(ngModel)]="formNumberValue"
-      required>
-    </app-form-input-number>
-  </div>
-  <div class="col-lg-3 mb-3">
-    <app-form-input-select
-      name="formControlSelect"
-      inputErrorMessageId="formControlSelectError"
-      inputLabelText="Form Select Value"
-      inputId="formControlSelect"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()"
-      [(ngModel)]="formSelectValue"
-      required>
-      @for (formSelectElement of formSelectElements(); track $index) {
-        <option [value]="formSelectElement">
-          {{ 'Item ' + formSelectElement }}
-        </option>
-      }
-    </app-form-input-select>
-  </div>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormControl fields
+    </legend>
+    <div class="col-lg-6 mb-3">
+      <app-form-input-text
+        name="formValueText"
+        inputErrorMessageId="formValueTextError"
+        inputId="formValueText"
+        inputLabelText="Form Text Value"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()"
+        [(ngModel)]="formTextValue"
+        required>
+      </app-form-input-text>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-input-number
+        name="formValueNumber"
+        inputErrorMessageId="formValueNumberError"
+        inputId="formValueNumber"
+        inputLabelText="Form Number Value"
+        inputMin="0"
+        inputMax="99"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()"
+        [(ngModel)]="formNumberValue"
+        required>
+      </app-form-input-number>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-input-select
+        name="formControlSelect"
+        inputErrorMessageId="formControlSelectError"
+        inputLabelText="Form Select Value"
+        inputId="formControlSelect"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()"
+        [(ngModel)]="formSelectValue"
+        required>
+        @for (formSelectElement of formSelectElements(); track $index) {
+          <option [value]="formSelectElement">
+            {{ 'Item ' + formSelectElement }}
+          </option>
+        }
+      </app-form-input-select>
+    </div>
+  </fieldset>
   <div class="mt-4">
     <button
       class="btn btn-primary mb-1"

@@ -1,0 +1,10 @@
+@if (fieldInvalid()) {
+  <div class="text-danger"
+    [attr.id]="errorFeedbackId()">
+    @for (error of errorFormField()().errors(); track error.kind) {
+      <small class="d-block">
+        {{ error.message }}
+      </small>
+    }
+  </div>
+}

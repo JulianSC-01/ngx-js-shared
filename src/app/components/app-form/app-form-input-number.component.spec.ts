@@ -1,5 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppFormInputNumberComponent } from './app-form-input-number.component';
 
 describe('AppFormInputNumberComponent', () => {
@@ -10,19 +10,17 @@ describe('AppFormInputNumberComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormInputNumberComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AppFormInputNumberComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

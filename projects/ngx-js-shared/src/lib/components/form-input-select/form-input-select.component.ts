@@ -17,14 +17,16 @@ const DEFAULT_EMPTY_OPTION_TEXT = 'Select';
 export class FormInputSelectComponent
   extends FormInputBaseDirective {
   readonly inputEmptyOption =
-    input(true,
-      { transform: booleanAttribute });
+    input(true, {
+      transform: booleanAttribute
+    });
   readonly inputEmptyOptionText =
     input(DEFAULT_EMPTY_OPTION_TEXT);
 
   controlHasChanged(event: Event) {
     const newValue =
-      (<HTMLInputElement>event.target).value;
+      (<HTMLSelectElement>event.target).value;
+
     this._onChange(newValue);
   }
 }

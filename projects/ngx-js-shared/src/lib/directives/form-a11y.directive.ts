@@ -2,7 +2,6 @@ import { Directive, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormGroupDirective, NgForm } from '@angular/forms';
 import { FormErrorHeaderComponent } from '../components/form-error-header/form-error-header.component';
-import { FormHelper } from '../util/form.helper';
 
 type FormType =
   FormGroupDirective | NgForm;
@@ -28,11 +27,14 @@ export class FormA11yDirective {
     } else if (this.templateForm) {
       this.addSubmissionListener(
         this.templateForm);
+    } else {
+      console.warn(
+        'appFormA11y -> No host form found');
     }
   }
 
   private addSubmissionListener(
-    formInstance : FormType) {
+    formInstance: FormType) {
     formInstance.ngSubmit.pipe(
       takeUntilDestroyed()
     ).subscribe(() => {
@@ -40,15 +42,14 @@ export class FormA11yDirective {
         this.formErrorHeader();
 
       if (formInstance.invalid) {
-        FormHelper.revealAllErrors(
-          formInstance.form);
+        formInstance.form.markAllAsDirty();
       }
 
       if (formErrorHeader) {
-        if (formInstance.valid) {
-          formErrorHeader.clearErrors();
-        } else if (formInstance.invalid) {
+        if (formInstance.invalid) {
           formErrorHeader.countErrors();
+        } else {
+          formErrorHeader.clearErrors();
         }
       }
     });

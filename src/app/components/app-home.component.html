@@ -2,7 +2,7 @@
   Sample application
 </app-page-header>
 <app-alert
-  [alertType]="'alert-warning'">
+  alertType="alert-warning">
   Note: Bootstrap CSS and script files must be added to your application's <em>angular.json</em> file in order to use this library.
 </app-alert>
 <p>
@@ -11,17 +11,38 @@
 <h2>
   Components
 </h2>
-<ul>
-  <li><a routerLink="/components/alert">Alert</a></li>
-  <li><a routerLink="/components/formReactive">Forms (Reactive)</a></li>
-  <li><a routerLink="/components/formTemplate">Forms (Template Driven)</a></li>
-  <li><a routerLink="/components/pagefooter">Page Footer</a></li>
-  <li><a routerLink="/components/pageheader">Page Header</a></li>
-  <li><a routerLink="/components/spinner">Spinner</a></li>
-</ul>
+<fieldset>
+  <legend class="visually-hidden">
+    Components
+  </legend>
+  <ul>
+    <li><a routerLink="/components/alert">Alert</a></li>
+    <li><a routerLink="/components/formReactive">Forms (Reactive)</a></li>
+    <li><a routerLink="/components/formTemplate">Forms (Template Driven)</a></li>
+    <li><a routerLink="/components/pagefooter">Page Footer</a></li>
+    <li><a routerLink="/components/pageheader">Page Header</a></li>
+    <li><a routerLink="/components/spinner">Spinner</a></li>
+  </ul>
+</fieldset>
 <h2>
   Pipes
 </h2>
-<ul>
-  <li><a routerLink="/pipes/leadingZero">Leading Zero</a></li>
-</ul>
+<fieldset>
+  <legend class="visually-hidden">
+    Pipes
+  </legend>
+  <ul>
+    <li><a routerLink="/pipes/leadingZero">Leading Zero</a></li>
+  </ul>
+</fieldset>
+<h2>
+  Experimental
+</h2>
+<fieldset>
+  <legend class="visually-hidden">
+    Experimental
+  </legend>
+  <ul>
+    <li><a routerLink="/experimental/formSignals">Forms (Signals)</a></li>
+  </ul>
+</fieldset>

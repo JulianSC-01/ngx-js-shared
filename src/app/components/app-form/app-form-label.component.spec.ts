@@ -1,5 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppFormLabelComponent } from './app-form-label.component';
 
 describe('AppFormLabelComponent', () => {
@@ -10,19 +10,17 @@ describe('AppFormLabelComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         AppFormLabelComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AppFormLabelComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

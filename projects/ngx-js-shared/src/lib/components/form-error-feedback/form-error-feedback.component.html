@@ -3,11 +3,9 @@
     class="text-danger"
     [attr.id]="errorFeedbackId()">
     @for (error of formControlErrors() | keyvalue; track error.key) {
-      <ng-container>
-        <small class="d-block">
-          {{ errorFeedbackMessages()[error.key] }}
-        </small>
-      </ng-container>
+      <small class="d-block">
+        {{ errorFeedbackMessages()[error.key] }}
+      </small>
     }
   </div>
 }

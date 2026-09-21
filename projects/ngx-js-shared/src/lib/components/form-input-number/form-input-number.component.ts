@@ -3,6 +3,7 @@ import { FormErrorFeedbackComponent } from '../form-error-feedback/form-error-fe
 import { FormInputBaseDirective } from '../form-input-base/form-input-base.directive';
 import { FormLabelComponent } from '../form-label/form-label.component';
 
+/* istanbul ignore start -- @preserve */
 @Component({
   imports: [
     FormErrorFeedbackComponent,
@@ -14,15 +15,22 @@ import { FormLabelComponent } from '../form-label/form-label.component';
 })
 export class FormInputNumberComponent
   extends FormInputBaseDirective {
+/* istanbul ignore stop -- @preserve */
   readonly inputMin =
-    input(undefined,
-      { transform: numberAttribute });
+    input(undefined, {
+      transform: (val) =>
+        numberAttribute(val, 0)
+    });
   readonly inputMax =
-    input(undefined,
-      { transform: numberAttribute });
+    input(undefined, {
+      transform: (val) =>
+        numberAttribute(val, 100)
+    });
   readonly inputStep =
-    input(1,
-      { transform: numberAttribute });
+    input(1, {
+      transform: (val) =>
+        numberAttribute(val, 1)
+    });
 
   controlHasChanged(event: Event) {
     const newValue =

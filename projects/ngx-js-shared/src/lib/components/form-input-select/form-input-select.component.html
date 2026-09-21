@@ -25,7 +25,7 @@
   }
   <ng-content/>
 </select>
-@if (inputErrorMessages()) {
+@if (hasErrorMessages()) {
   <app-form-error-feedback
     [errorFeedbackControl]="formControl()"
     [errorFeedbackId]="inputErrorMessageId()"

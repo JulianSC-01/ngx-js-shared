@@ -14,5 +14,10 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import ('./routes/app.pipe.routes').
         then(m => m.appPipeRoutes)
+  },
+  { path: 'experimental',
+    loadChildren: () =>
+      import ('./experimental/routes/app.experimental.routes').
+        then(m => m.appExperimentalRoutes)
   }
 ];

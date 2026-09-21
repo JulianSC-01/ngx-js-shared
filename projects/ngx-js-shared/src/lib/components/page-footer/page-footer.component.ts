@@ -11,7 +11,7 @@ export class PageFooterComponent {
     input('', {
       transform: (value: string | Date) =>
         value instanceof Date ?
-          value.toLocaleDateString() : value
+          value.toLocaleDateString('en-CA') : value
     });
   readonly versionNumber =
     input<string | number>('');

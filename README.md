@@ -4,6 +4,13 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
+2026-09-13 (21.0.0)
+
+- Upgrade to Angular 21
+- Update npm dependencies including audit fixes
+- Migrate from karma to vitest
+- Add unit tests for all library components
+
 2026-02-26 (20.0.0)
 
 - Upgrade to Angular 20

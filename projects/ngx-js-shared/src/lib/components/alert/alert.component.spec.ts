@@ -1,5 +1,5 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, test } from "vitest";
 import { AlertComponent } from './alert.component';
 
 describe('AlertComponent', () => {
@@ -7,22 +7,43 @@ describe('AlertComponent', () => {
   let fixture: ComponentFixture<AlertComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        AlertComponent
-      ],
-      providers: [
-        provideZonelessChangeDetection()
-      ]
-    })
-    .compileComponents();
+    TestBed.configureTestingModule({
+      imports: [AlertComponent]
+    });
 
     fixture = TestBed.createComponent(AlertComponent);
+
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
+  });
+
+  test('should have default input', () => {
+    expect(component.alertId()).
+      toBeUndefined();
+    expect(component.alertRole()).
+      toBeUndefined();
+    expect(component.alertType()).
+      toBe('alert-info');
+    expect(component.alertClass()).
+      toBe('alert alert-info');
+  });
+
+  test('should have danger alertType', () => {
+    fixture.componentRef.
+      setInput('alertType', 'alert-danger');
+
+    expect(component.alertId()).
+      toBeUndefined();
+    expect(component.alertRole()).
+      toBeUndefined();
+    expect(component.alertType()).
+      toBe('alert-danger');
+    expect(component.alertClass()).
+      toBe('alert alert-danger');
   });
 });

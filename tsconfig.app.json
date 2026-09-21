@@ -3,7 +3,17 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "paths": {
+      "ngx-js-shared": [
+        "./dist/ngx-js-shared"
+      ],
+      "ngx-js-shared/experimental": [
+        "./dist/ngx-js-shared/experimental"
+      ]
+    },
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/**/*.ts"

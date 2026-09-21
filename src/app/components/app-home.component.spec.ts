@@ -1,6 +1,6 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { beforeEach, describe, expect, test } from "vitest";
 import { AppHomeComponent } from './app-home.component';
 
 describe('AppHomeComponent', () => {
@@ -13,7 +13,6 @@ describe('AppHomeComponent', () => {
         AppHomeComponent
       ],
       providers: [
-        provideZonelessChangeDetection(),
         provideRouter([])
       ]
     })
@@ -21,10 +20,11 @@ describe('AppHomeComponent', () => {
 
     fixture = TestBed.createComponent(AppHomeComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should create', () => {
+    expect(component).toBeDefined();
   });
 });

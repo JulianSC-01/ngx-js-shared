@@ -36,82 +36,92 @@
   <h3 class="h4">
     FormControl
   </h3>
-  <div class="col-lg-6 mb-3">
-    <app-form-input-text
-      formControlName="formControlText"
-      inputErrorMessageId="formControlTextError"
-      inputLabelText="FormControl Text Value"
-      inputId="formControlText"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()">
-    </app-form-input-text>
-  </div>
-  <div class="col-lg-3 mb-3">
-    <app-form-input-number
-      formControlName="formControlNumber"
-      inputErrorMessageId="formControlNumberError"
-      inputLabelText="FormControl Number Value"
-      inputMin="0"
-      inputMax="99"
-      inputId="formControlNumber"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()">
-    </app-form-input-number>
-  </div>
-  <div class="col-lg-3 mb-3">
-    <app-form-input-select
-      formControlName="formControlSelect"
-      inputErrorMessageId="formControlSelectError"
-      inputLabelText="FormControl Select Value"
-      inputId="formControlSelect"
-      inputRequired="true"
-      [inputErrorMessages]="errorMessageMap()">
-      @for (formSelectElement of formSelectElements(); track $index) {
-        <option [value]="formSelectElement">
-          {{ 'Item ' + formSelectElement }}
-        </option>
-      }
-    </app-form-input-select>
-  </div>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormControl fields
+    </legend>
+    <div class="col-lg-6 mb-3">
+      <app-form-input-text
+        formControlName="formControlText"
+        inputErrorMessageId="formControlTextError"
+        inputLabelText="FormControl Text Value"
+        inputId="formControlText"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()">
+      </app-form-input-text>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-input-number
+        formControlName="formControlNumber"
+        inputErrorMessageId="formControlNumberError"
+        inputLabelText="FormControl Number Value"
+        inputMin="0"
+        inputMax="99"
+        inputId="formControlNumber"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()">
+      </app-form-input-number>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-input-select
+        formControlName="formControlSelect"
+        inputErrorMessageId="formControlSelectError"
+        inputLabelText="FormControl Select Value"
+        inputId="formControlSelect"
+        inputRequired="true"
+        [inputErrorMessages]="errorMessageMap()">
+        @for (formSelectElement of formSelectElements(); track $index) {
+          <option [value]="formSelectElement">
+            {{ 'Item ' + formSelectElement }}
+          </option>
+        }
+      </app-form-input-select>
+    </div>
+  </fieldset>
   <h3 class="h4">
     FormArray
   </h3>
-  <div class="mb-3" formArrayName="formArray">
-    @for (control of formArray.controls; track control) {
-      <div class="col-lg-6 mb-3">
-        <app-form-input-text
-          inputRequired="true"
-          [formControlName]="$index"
-          [inputErrorMessageId]="`formArrayText${$index}Error`"
-          [inputErrorMessages]="errorMessageMap()"
-          [inputLabelText]="`FormArray Text Value ${$index+1}`"
-          [inputId]="`formArrayText${$index}`">
-        </app-form-input-text>
-        <button
-          class="btn btn-sm btn-danger mb-1 mt-2"
-          type="button"
-          (click)="removeArrayElement($index)">
-          Remove element
-          <span class="visually-hidden">
-            {{ ($index+1) }}
-          </span>
-        </button>
-      </div>
-    } @empty {
-      <div class="mb-3">
-        <p>
-          Select the "Add element" button to add a control.
-        </p>
-      </div>
-    }
-    <button
-      class="btn btn-secondary mb-1"
-      id="addButton"
-      type="button"
-      (click)="addArrayElement()">
-      Add element
-    </button>
-  </div>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormArray fields
+    </legend>
+    <div class="mb-3" formArrayName="formArray">
+      @for (control of formArray.controls; track control) {
+        <div class="col-lg-6 mb-3">
+          <app-form-input-text
+            inputRequired="true"
+            [formControlName]="$index"
+            [inputErrorMessageId]="`formArrayText${$index}Error`"
+            [inputErrorMessages]="errorMessageMap()"
+            [inputLabelText]="`FormArray Text Value ${$index+1}`"
+            [inputId]="`formArrayText${$index}`">
+          </app-form-input-text>
+          <button
+            class="btn btn-sm btn-danger mb-1 mt-2"
+            type="button"
+            (click)="removeArrayElement($index)">
+            Remove control
+            <span class="visually-hidden">
+              {{ ($index+1) }}
+            </span>
+          </button>
+        </div>
+      } @empty {
+        <div class="mb-3">
+          <p>
+            Select the "Add control" button to add a control.
+          </p>
+        </div>
+      }
+      <button
+        class="btn btn-secondary mb-1"
+        id="addButton"
+        type="button"
+        (click)="addArrayElement()">
+        Add control
+      </button>
+    </div>
+  </fieldset>
   <div class="mt-4">
     <button
       class="btn btn-primary mb-1"

@@ -14,7 +14,7 @@ export class AlertComponent {
   readonly alertType =
     input('alert-info');
 
-  alertClass =
+  readonly alertClass =
     computed(() =>
       `alert ${this.alertType()}`);
 }

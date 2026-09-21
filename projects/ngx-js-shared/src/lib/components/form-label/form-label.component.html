@@ -1,7 +1,7 @@
 <label
   class="form-label"
-  [class.visually-hidden]="labelInvisible()"
-  [for]="labelControlId()">
+  [attr.for]="labelControlId()"
+  [class.visually-hidden]="labelInvisible()">
   <ng-content/>
   @if (labelRequired()) {
     <span class="label-required">

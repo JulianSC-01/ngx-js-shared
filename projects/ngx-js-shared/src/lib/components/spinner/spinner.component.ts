@@ -17,8 +17,9 @@ export class SpinnerComponent {
   readonly spinnerColor =
     input('');
   readonly spinnerSmall =
-    input(false,
-      { transform: booleanAttribute });
+    input(false, {
+      transform: booleanAttribute
+    });
   readonly spinnerStyle =
     input(SPINNER_BORDER);
 
@@ -26,10 +27,9 @@ export class SpinnerComponent {
     computed(() => {
       if (this.spinnerSmall()) {
         switch (this.spinnerStyle()) {
-          case SPINNER_BORDER:
-            return SPINNER_BORDER_SM;
           case SPINNER_GROW:
             return SPINNER_GROW_SM;
+          case SPINNER_BORDER:
           default:
             return SPINNER_BORDER_SM;
         }

@@ -86,19 +86,15 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "browsers": "ChromeHeadless",
-            "tsConfig": "tsconfig.spec.json",
-            "watch": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
+            "coverage": true,
+            "coverageExclude": [
+              "projects/ngx-js-shared/**",
+              "src/app/experimental/**"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "runnerConfig": "vitest-base.config.ts",
+            "watch": false
           }
         }
       }
@@ -106,7 +102,7 @@
     "ngx-js-shared": {
       "projectType": "library",
       "root": "projects/ngx-js-shared",
-      "sourceRoot": "projects/ngx-js-shared/src",
+      "sourceRoot": "projects/ngx-js-shared",
       "prefix": "app",
       "architect": {
         "build": {
@@ -125,9 +121,14 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "browsers": "ChromeHeadless",
+            "coverage": true,
+            "coverageExclude": [
+              "projects/ngx-js-shared/experimental/**",
+              "projects/ngx-js-shared/src/lib/**/spec/*.component.ts"
+            ],
+            "runnerConfig": "vitest-base.config.ts",
             "tsConfig": "projects/ngx-js-shared/tsconfig.spec.json",
             "watch": false
           }

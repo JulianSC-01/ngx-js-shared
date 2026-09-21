@@ -1,0 +1,112 @@
+<app-page-header>
+  Signal form components
+</app-page-header>
+<h2 class="mb-3">
+  Overview
+</h2>
+<app-alert
+  alertType="alert-warning">
+  Note: Signal form components are experimental.
+</app-alert>
+<h2 class="mb-3">
+  Examples
+</h2>
+<form
+  autocomplete="off"
+  [formRoot]="signalForm">
+  <app-form-signal-error-header
+    [errorFormRoot]="signalForm"/>
+  <h3 class="h4">
+    FormControl
+  </h3>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormControl fields
+    </legend>
+    <div class="col-lg-6 mb-3">
+      <app-form-signal-input-text
+        inputErrorMessageId="formControlTextError"
+        inputLabelText="FormControl Text Value"
+        inputId="formControlText"
+        [formField]="signalForm.formControlText">
+      </app-form-signal-input-text>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-signal-input-number
+        inputErrorMessageId="formControlNumberError"
+        inputId="formControlNumber"
+        inputLabelText="FormControl Number Value"
+        [formField]="signalForm.formControlNumber">
+      </app-form-signal-input-number>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <app-form-signal-input-select
+        inputErrorMessageId="formControlSelectError"
+        inputLabelText="FormControl Select Value"
+        inputId="formControlSelect"
+        [formField]="signalForm.formControlSelect">
+        @for (formSelectElement of
+          formSelectElements(); track $index) {
+          <option [value]="formSelectElement">
+            {{ 'Item ' + formSelectElement }}
+          </option>
+        }
+      </app-form-signal-input-select>
+    </div>
+  </fieldset>
+  <h3 class="h4">
+    FormArray
+  </h3>
+  <fieldset>
+    <legend class="visually-hidden">
+      FormArray fields
+    </legend>
+    <div class="mb-3">
+      @for (field of signalForm.formArray; track field) {
+        <div class="col-lg-6 mb-3">
+          <app-form-signal-input-text
+            [inputErrorMessageId]="`formArrayText${$index}Error`"
+            [inputId]="`formArrayText${$index}`"
+            [inputLabelText]="`FormArray Text Value ${$index+1}`"
+            [formField]="field">
+          </app-form-signal-input-text>
+          <button
+            class="btn btn-sm btn-danger mb-1 mt-2"
+            type="button"
+            (click)="removeArrayElement($index)">
+            Remove control
+            <span class="visually-hidden">
+              {{ ($index+1) }}
+            </span>
+          </button>
+        </div>
+      } @empty {
+        <div class="mb-3">
+          <p>
+            Select the "Add control" button to add a control.
+          </p>
+        </div>
+      }
+      <button
+        class="btn btn-secondary mb-1"
+        id="addButton"
+        type="button"
+        (click)="addArrayElement()">
+        Add control
+      </button>
+    </div>
+  </fieldset>
+  <div class="mt-4">
+    <button
+      class="btn btn-primary mb-1"
+      type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+<div class="mb-2 mt-4">
+  Return to:
+  <a routerLink="/" aria-label="Return to home page">
+    Home
+  </a>
+</div>

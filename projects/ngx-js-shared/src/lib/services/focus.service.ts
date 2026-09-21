@@ -24,8 +24,10 @@ export class FocusService {
     setTimeout(() => {
       const element = <HTMLElement>document.
         querySelector(elementId);
-      if (element)
+
+      if (element) {
         element.focus();
+      }
     }, 100);
   }
 }

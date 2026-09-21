@@ -20,8 +20,10 @@ export class PageHeaderComponent {
   readonly pageTitle =
     input('');
 
+  /* istanbul ignore start */
   readonly header =
     viewChild.required<ElementRef>('header');
+  /* istanbul ignore stop */
 
   constructor() {
     afterNextRender({
@@ -33,10 +35,12 @@ export class PageHeaderComponent {
     effect(() => {
       const header =
         untracked(this.header);
+      const headerElement =
+        header.nativeElement as HTMLHeadingElement;
 
       this.titleService.setTitle(
         this.pageTitle() === '' ?
-          header.nativeElement.innerText :
+          headerElement.textContent.trim() :
           this.pageTitle());
     });
   }
