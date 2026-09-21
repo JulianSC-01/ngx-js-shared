@@ -20,6 +20,7 @@ describe('AppHomeComponent', () => {
 
     fixture = TestBed.createComponent(AppHomeComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

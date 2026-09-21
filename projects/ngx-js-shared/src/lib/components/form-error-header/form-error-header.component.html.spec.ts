@@ -15,7 +15,9 @@ describe('FormErrorHeaderComponent - html', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [FormErrorHeaderComponent]
+      imports: [
+        FormErrorHeaderComponent
+      ]
     });
 
     fixture = TestBed.createComponent(FormErrorHeaderComponent);

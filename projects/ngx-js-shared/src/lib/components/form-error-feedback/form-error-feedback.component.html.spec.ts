@@ -12,7 +12,9 @@ describe('FormErrorFeedbackComponent - html', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [FormErrorFeedbackComponent]
+      imports: [
+        FormErrorFeedbackComponent
+      ]
     });
 
     fixture = TestBed.createComponent(FormErrorFeedbackComponent);

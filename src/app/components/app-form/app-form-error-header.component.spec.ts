@@ -16,6 +16,7 @@ describe('AppFormErrorHeaderComponent', () => {
 
     fixture = TestBed.createComponent(AppFormErrorHeaderComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

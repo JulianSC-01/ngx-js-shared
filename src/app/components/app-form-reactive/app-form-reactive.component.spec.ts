@@ -20,6 +20,7 @@ describe('AppFormReactiveComponent', () => {
 
     fixture = TestBed.createComponent(AppFormReactiveComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

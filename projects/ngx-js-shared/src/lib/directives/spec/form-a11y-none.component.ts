@@ -5,7 +5,7 @@ import { FormA11yDirective } from "../form-a11y.directive";
   imports: [
     FormA11yDirective
   ],
-  selector: 'app-form-a11y-template-host',
+  selector: 'app-form-a11y-none-host',
   template: `
     <form
       appFormA11y

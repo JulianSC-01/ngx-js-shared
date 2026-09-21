@@ -20,6 +20,7 @@ describe('AppSpinnerComponent', () => {
 
     fixture = TestBed.createComponent(AppSpinnerComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

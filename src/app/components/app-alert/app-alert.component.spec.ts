@@ -20,6 +20,7 @@ describe('AppAlertComponent', () => {
 
     fixture = TestBed.createComponent(AppAlertComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

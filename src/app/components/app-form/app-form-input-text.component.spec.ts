@@ -16,6 +16,7 @@ describe('AppFormInputTextComponent', () => {
 
     fixture = TestBed.createComponent(AppFormInputTextComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

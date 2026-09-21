@@ -20,6 +20,7 @@ describe('AppFormTemplateComponent', () => {
 
     fixture = TestBed.createComponent(AppFormTemplateComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

@@ -20,6 +20,7 @@ describe('AppFormSignalsComponent', () => {
 
     fixture = TestBed.createComponent(AppFormSignalsComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

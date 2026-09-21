@@ -20,6 +20,7 @@ describe('AppLeadingZero', () => {
 
     fixture = TestBed.createComponent(AppLeadingZeroComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

@@ -20,6 +20,7 @@ describe('AppPageHeaderComponent', () => {
 
     fixture = TestBed.createComponent(AppPageHeaderComponent);
     component = fixture.componentInstance;
+
     await fixture.whenStable();
   });
 

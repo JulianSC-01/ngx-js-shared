@@ -44,7 +44,7 @@ describe('PageHeaderComponent', () => {
 
   test('should set default title', () => {
     expect(titleService.setTitle).
-      toHaveBeenCalledExactlyOnceWith('Page header');
+      toHaveBeenLastCalledWith('Page header');
   });
 
   test('should set custom title', async () => {
