@@ -4,6 +4,11 @@ This sample application demonstrates the common components contained in the JSSh
 
 ## Change Log
 
+2026-10-27 (21.0.2)
+
+- Update npm dependencies including audit fixes
+- Update vitest to 4.1.12
+
 2026-10-12 (21.0.1)
 
 - Update npm dependencies including audit fixes
