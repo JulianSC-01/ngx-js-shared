@@ -1,6 +1,6 @@
 {
   "name": "ng-js-shared",
-  "version": "21.0.1",
+  "version": "21.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,14 +24,14 @@
     "@angular/cli": "~21.2.26",
     "@angular/compiler-cli": "~21.2.25",
     "@types/node": "~22.20.2",
-    "@vitest/coverage-istanbul": "~4.1.11",
-    "@vitest/coverage-v8": "~4.1.11",
+    "@vitest/coverage-istanbul": "~4.1.12",
+    "@vitest/coverage-v8": "~4.1.12",
     "baseline-browser-mapping": "~2.11.23",
     "bootstrap": "~5.3.8",
     "jsdom": "~29.0.2",
     "ng-packagr": "~21.2.2",
     "typescript": "~5.9.3",
-    "vitest": "~4.1.11"
+    "vitest": "~4.1.12"
   },
   "allowScripts": {
     "@parcel/watcher": false,
